@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>PageTitle</title>
+    <title>The App</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html">JavaScript Template</a>
+            <a class="navbar-brand" href="/index.html">Hundo Template</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link"  href="/index.html">Home</a>
+                        <a class="nav-link" href="/index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/app.html">The App</a>
@@ -53,9 +53,43 @@
 
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Template with dark fixed navbar and sticky footer</h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
-                CSS. A fixed navbar has been added with padding-top: 60px; on the main > .container.</p>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h1>Hundu App</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <h1>Instructions</h1>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h1>Enter Values</h1>
+                        <div class="col">
+                            <input type="number" id="startValue" class="form-control" placeholder="Start Value" value=0>
+                        </div>
+                        <div class="col">
+                            <input type="number" id="endValue" class="form-control" placeholder="Start Value" value=100>
+                        </div>
+                        <button id="submitBtn" class="btn btn-warning">Submit</button>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h1>Results</h1>
+                            <table class="table table-striped">
+                                <tbody id="output">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </main>
     <footer class="footer mt-auto py-3 bg-dark">
@@ -90,6 +124,10 @@
     </script>
     <script src="js/prism.js"></script>
     <script src="js/site.js"></script>
+    <!-- Script event listener -->
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", getNumbers)
+    </script>
 
     <!-- Font awesone js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"

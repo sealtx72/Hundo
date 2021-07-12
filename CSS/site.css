@@ -2,4 +2,6 @@
      padding: 60px 15px 0;
  }
 
- 
+ .even {
+     font-weight: bold;
+ }
