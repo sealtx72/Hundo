@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 bg-light">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -54,19 +54,23 @@
     <main class="flex-shrink-0">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col pt-4 pe-5">
                     <div class="row">
                         <div class="col">
-                            <h1>Hundu App</h1>
+                            <h1>Hundo App</h1>
+                            <h4>JavaScript Coding Chalenge</h4>
+                            <p>A program that displays any numbers from 0
+                                to a pre determined number. Display the even numbers in BOLD.</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col"></div>
-                        <h1>Instructions</h1>
+                        <div class="col pt-5"></div>
+                        <h1 class=" border-bottom border-2">Instructions</h1>
+                        <p>Please enter the initial value and the number of iterations.</p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="row">
+                <div class="col pt-4 ps-5">
+                    <div class="row mb-5">
                         <h1>Enter Values</h1>
                         <div class="col">
                             <input type="number" id="startValue" class="form-control" placeholder="Start Value" value=0>
@@ -74,10 +78,10 @@
                         <div class="col">
                             <input type="number" id="endValue" class="form-control" placeholder="Start Value" value=100>
                         </div>
-                        <button id="submitBtn" class="btn btn-warning">Submit</button>
+                        <button id="submitBtn" class="col-2 btn btn-warning" style="float: right;">Submit</button>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col mt-5">
                             <h1>Results</h1>
                             <table class="table table-striped">
                                 <tbody id="output">
@@ -86,6 +90,7 @@
                             </table>
                         </div>
                     </div>
+
                 </div>
 
 
@@ -93,8 +98,8 @@
         </div>
     </main>
     <footer class="footer mt-auto py-3 bg-dark">
-        <div class="container-fluid text-center text-secondary">
-            <div class="row">
+        <div class="navbar-expand-md text-center text-secondary fixed-bottom bg-dark">
+            <div class="row mt-3 mb-3">
                 <div class="col">
                     &copy2021 <span>A. Morales | Demo Code</span>
                 </div>
@@ -102,7 +107,7 @@
                     <span class="text-uppercase"> alberto morales</span>
                 </div>
                 <dic class="col">
-                    <a href="#" class="text-secondary" target="_blank"><i class="fab fa-linkedin fa-3x bg-dark"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin fa-3x bg-dark"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-github fa-3x bg-dark"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-twitter fa-3x bg-dark"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-youtube fa-3x bg-dark"></i></a>
@@ -126,13 +131,15 @@
     <script src="js/site.js"></script>
     <!-- Script event listener -->
     <script>
-        document.getElementById("submitBtn").addEventListener("click", getNumbers)
+        document.getElementById("submitBtn").addEventListener("click", getNumbers);
     </script>
 
     <!-- Font awesone js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        
+    </script>
 
 </body>
 
