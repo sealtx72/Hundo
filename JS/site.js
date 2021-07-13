@@ -35,7 +35,7 @@ function getNumbers() {
 function generateNumbers(startValue, endValue) {
     let numbers = [];
     //loop over every number from startValue to endValue
-    for (let index = startValue; index <= endValue; index++) {
+    for (let index = startValue; index <= endValue + 1; index++) {
         numbers.push(index)
     }
 
