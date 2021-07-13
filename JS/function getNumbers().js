@@ -18,18 +18,18 @@ function getNumbers() {
     //isNaN is a built in JS function that returns true if the variable is 'not a number'
     if (isNaN(newStart) || isNaN(newEnd)) {
         errorState = true;
-        errorMsg += "Please use numbers<hr>";
+        errorMsg += "Please use numbers&lt;hr>";
     }
     //make sure the start value is less than the end value
     if (newStart > newEnd) {
         errorState = true;
-        errorMsg += "Start value must be less than end value<hr>";
+        errorMsg += "Start value must be less than end value&lt;hr>";
     }
     //set an upper and lower bound for the loops
     //this is an optional addition that improves the user experience
-    if (newStart > 100 || newStart < 0 || newEnd > 100) {
+    if (newStart > 100 || newStart &lt; -100 || newEnd > 100 || newEnd &lt; -100) {
         errorState = true;
-        errorMsg += "Only numbers between 0 and 100<hr>";
+        errorMsg += "-100 and 100 are the limit&lt;hr>";
     }
 
     //if any of the error cases happened fire a SweetAlert and exit the function
@@ -50,27 +50,22 @@ function getNumbers() {
     displayNumbers(numbers);
 }
 //Wrapper function/method - a function that calls other functions
+
+
 function generateNumbers(startValue, endValue) {
     let numbers = [];
     //loop over every number from startValue to endValue
-    for (let index = startValue; index <= endValue; index++) {
+    for (let index = startValue; index &lt;= endValue; index++) {
         numbers.push(index)
     }
-    //send the array of numbers back to the wrapper function
     return numbers;
 }
-//this function exists to display the results to the user
+
 function displayNumbers(numbers) {
-    //create a string to hold a class name based on even or odd
     let className = "even";
-    //create a string that will hold our output
     let templateRows = "";
 
-    //go through each number in the array and determine if that number is even or odd
-    //the '%' modulus operand returns the remainder from division
-    //ex. 3 % 2 = 1
-    //ex. 100 % 5 = 0
-    for (let index = 0; index < numbers.length; index++) {
+    for (let index = 0; index &lt; numbers.length; index++) {
         let number = numbers[index];
 
         if (number % 2 == 0) {
@@ -78,8 +73,8 @@ function displayNumbers(numbers) {
         } else {
             className = "odd";
         }
-        //use string concatenation to create a long string of HTML to display
-        templateRows = templateRows + `<tr><td class="${className}">${number}</td></tr>`;
+
+        templateRows = templateRows + `&lt;tr>&lt;td class="${className}">${number}&lt;/td>&lt;/tr>`;
     }
     document.getElementById("output").innerHTML = templateRows;
 }

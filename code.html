@@ -50,60 +50,102 @@
             </div>
         </div>
     </nav>
+    <main class="flex-shrink-0">
+        <div class="container col-xxl-9 px-4 py-5 mt-5">
 
-    <main id="content" class="flex-shrink-0">
-        <div class="container col-xxl-8 px-4 py-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code</h2>
+            <h2 class="border-1 border-bottom border-dark text-dark">The Code</h2>
             <div class="row">
-                <div class="col-lg-8 col-sm-12">
-                    <pre class="line-numbers"><code class="language-javascript">
-                    //access the webpage and get the values from the input
+                <div class="col-8" id="codeCol">
+                    <pre>
+                        <code class="language-javascript line-numbers">
+function getNumbers() {
+    //access the webpage and get the values from the input
 
-                    let startValue = document.getElementById("startValue").value;
-                    let endValue = document.getElementById("endValue").value;
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
 
-                    //take the start and en values as the bounds for a 'for' loop
-                    //that will create an array and return it
+    //parsetInt is used to convert a string number to a number number
+    let newStart = parseInt(startValue);
+    let newEnd = parseInt(endValue);
 
-                    let numbers = generateNumbers(startValue, endValue);
+    //create a Boolean variable to check for an error state
+    //we start with false so that it does not trigger
+    let errorState = false;
+    //create an empty string that will store any error message generated
+    let errorMsg = "";
 
-                    //take the array that was returned and pass it to a function that will
-                    //display it
+    //make sure the user entered 2 numbers
+    //isNaN is a built in JS function that returns true if the variable is 'not a number'
+    if (isNaN(newStart) || isNaN(newEnd)) {
+        errorState = true;
+        errorMsg += "Please use numbers&lt;hr>";
+    }
+    //make sure the start value is less than the end value
+    if (newStart > newEnd) {
+        errorState = true;
+        errorMsg += "Start value must be less than end value&lt;hr>";
+    }
+    //set an upper and lower bound for the loops
+    //this is an optional addition that improves the user experience
+    if (newStart > 100 || newStart &lt; -100 || newEnd > 100 || newEnd &lt; -100) {
+        errorState = true;
+        errorMsg += "-100 and 100 are the limit&lt;hr>";
+    }
 
-                    displayNumbers(numbers);
+    //if any of the error cases happened fire a SweetAlert and exit the function
+    if (errorState) {
+        Swal.fire(
+            'Something went wrong',
+            `${errorMsg}`,
+            'error'
+        )
+        return;
+    }
+    //take the start and en values as the bounds for a 'for' loop
+    //that will create an array and return it
+    let numbers = generateNumbers(newStart, newEnd);
 
-                    //Wrapper function/method - a function that calls other functions
+    //take the array that was returned and pass it to a function that will
+    //display it
+    displayNumbers(numbers);
+}
+//Wrapper function/method - a function that calls other functions
+function generateNumbers(startValue, endValue) {
+    let numbers = [];
+    //loop over every number from startValue to endValue
+    for (let index = startValue; index &lt;= endValue; index++) {
+        numbers.push(index)
+    }
+    return numbers;
+}
+//this function exists to display the results to the user
+function displayNumbers(numbers) {
+    //create a string to hold a class name based on even or odd
+    let className = "even";
+    //create a string that will hold our output
+    let templateRows = "";
 
-                    function generateNumbers(startValue, endValue) {
-                    let numbers = [];
+    //go through each number in the array and determine if that number is even or odd
+    //the '%' modulus operand returns the remainder from division
+    //ex. 3 % 2 = 1
+    //ex. 100 % 5 = 0
+    for (let index = 0; index &lt; numbers.length; index++) {
+        let number = numbers[index];
+        if (number % 2 == 0) {
+            className = "even";
+        } else {
+            className = "odd";
+        }
+        //use string concatenation to create a long string of HTML to display
+        templateRows = templateRows + `&lt;tr>&lt;td class="${className}">${number}&lt;/td>&lt;/tr>`;
+    }
+    document.getElementById("output").innerHTML = templateRows;
+}
+</code>
 
-                    //loop over every number from startValue to endValue
-
-                        for (let index = startValue; index <= endValue; index++) { 
-                            numbers.push(index) 
-                        }
-                        return numbers; 
-                    }
-                    
-                    //Display the numbers to the screen
-
-                    function displayNumbers(numbers) { 
-                        let className="even"; 
-                        let templateRows=""; 
-                        for (let index=0; index < numbers.length; index++) { 
-                            let number=numbers[index]; 
-                            if (number % 2==0) {
-                                className="even"; 
-                            } else { 
-                                className="odd" ; 
-                            } 
-                            templateRows=templateRows + `<tr><td class="${className}">${number}</td></tr>`;
-                        }
-                         document.getElementById("output").innerHTML = templateRows;
-                    }
-                    </code></pre>
+</pre>
                 </div>
-                <div class="col-lg-4 col-sm-12">
+                <div class="col" id="explainCol">
                     <p>The code is structured in three functions.</p>
                     <h5>getValues</h5>
                     <p>getValues accepts(gets) the user input from the page. It utilizes <strong>getElementById</strong>
@@ -129,8 +171,15 @@
                     </p>
                 </div>
             </div>
+
+
+
         </div>
+
+
+
     </main>
+
 
     <footer class="footer mt-auto py-3 bg-dark">
         <div class="navbar-expand-md text-center text-secondary fixed-bottom bg-dark">
@@ -148,6 +197,8 @@
                     <a href="#" target="_blank"><i class="fab fa-youtube fa-3x bg-dark"></i></a>
             </div>
         </div>
+
+
 
 
     </footer>
