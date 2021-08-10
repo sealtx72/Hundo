@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 mb-color">
+<body class="d-flex flex-column h-100 bgmain">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -58,7 +58,8 @@
 
             <h2 class="border-1 border-bottom border-dark text-dark">The Code</h2>
             <div class="row">
-                <div class="col-8" id="codeCol">
+                <div class="col"></div>
+                <div class="col" id="codeCol">
                     <pre>
                         <code class="language-javascript line-numbers">
 function getNumbers() {
@@ -147,31 +148,10 @@ function displayNumbers(numbers) {
 </code>
 
 </pre>
+</div>
+<div class="col"></div>
                 </div>
-                <div class="col" id="explainCol">
-                    <p>The code is structured in three functions.</p>
-                    <h5>getValues</h5>
-                    <p>getValues accepts(gets) the user input from the page. It utilizes <strong>getElementById</strong>
-                        to pull the values from the page. It passes those values to the <strong>generateNumbers</strong>
-                        function. The function <strong>generateNumbers</strong> returns an array of values and passes
-                        that array to the <strong>displayNumbers</strong> function.</p>
-                    <h5>generateNumbers</h5>
-                    <p>generateNumbers takes in two parameters startValue and endValue. We create a variable (numbers)
-                        that holds an array. A for loop is used to generate all of the numbers between
-                        <strong>startValue</strong> and <strong>endValue</strong></p>
-                    <h5>displayNumbers</h5>
-                    <p>displayNumbers takes in one parameter numbers. The variable numbers is an array the holds values
-                        between <strong>startValue</strong> and <strong>endValue</strong>. We create a variable
-                        (className) that holds the name of a CSS class that we will use to bold the numbers. We create a
-                        variable templateRows that will hold the html we will write to the page.</p>
-                    <p>A for loop is used to check all of the numbers to see if they are even or odd. The remainder
-                        operator
-                        (%) is used to see if the number is divisable by two. If it returns zero the it is even. If not
-                        (else) its odd. The
-                        correct className is injected into the html row for display. Each interation of the loop adds to
-                        the teamplateRows variable. At the end of the loop the resulting HTML rows are written to the
-                        page.
-                    </p>
+                
                 </div>
             </div>
 

@@ -17,3 +17,6 @@ a:hover {
 .mb-color {
     background-color: rgb(218, 218, 218);
 }
+.bgmain {
+    background: linear-gradient(90deg, rgba(244, 244, 244, 1) 0%, rgba(157, 157, 157, 1) 100%);
+}
